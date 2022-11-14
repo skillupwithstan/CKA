@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: skillupwithstan-apache-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: skillupwithstan-apache
+    spec:
+      containers:
+      - name: skillupwithstan-apache-container1
+        image: httpd
+        ports:
+        - containerPort: 80
