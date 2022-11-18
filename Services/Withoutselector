@@ -1,0 +1,10 @@
+# Service without Selector
+
+apiVersion: v1
+kind: Service
+metadata:
+   name: Tutorial_point_service
+spec:
+   ports:
+   - port: 8080
+   targetPort: 31999
