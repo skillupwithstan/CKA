@@ -1,0 +1,23 @@
+Using Namespace in Service - Example
+Following is an example of a sample file for using namespace in service.
+
+apiVersion: v1
+kind: Service
+metadata:
+   name: elasticsearch
+   namespace: elk
+   labels:
+      component: elasticsearch
+spec:
+   type: LoadBalancer
+   selector:
+      component: elasticsearch
+   ports:
+   - name: http
+      port: 9200
+      protocol: TCP
+   - name: transport
+      port: 9300
+      protocol: TCP
+      
+      In the above code, we are using the same namespace under service metadata with the name of elk.
