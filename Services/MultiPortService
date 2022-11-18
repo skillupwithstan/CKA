@@ -1,0 +1,19 @@
+#Multi-Port Service Creation
+
+apiVersion: v1
+kind: Service
+metadata:
+   name: SkillUpwithStan_Online
+spec:
+   selector:
+      application: “My Application” -------------------> (Selector)
+   ClusterIP: 10.3.0.12
+   ports:
+      -name: http
+      protocol: TCP
+      port: 80
+      targetPort: 31999
+   -name:https
+      Protocol: TCP
+      Port: 443
+      targetPort: 31998
