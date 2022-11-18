@@ -1,0 +1,40 @@
+
+
+apiVersion: extensions/v1beta1 --------------------->1
+kind: Deployment --------------------------> 2
+metadata:
+   name: Tomcat-ReplicaSet
+spec:
+   replicas: 3
+   template:
+      metadata:
+         lables:
+            app: Tomcat-ReplicaSet
+            tier: Backend
+   spec:
+      containers:
+         - name: Tomcatimage:
+            tomcat: 8.0
+            ports:
+               - containerPort: 7474
+               
+
+# Create Deployment
+$ kubectl create –f Deployment.yaml -–record
+
+# Fetch Deployment
+deployment "Deployment" created Successfully.
+
+$ kubectl get deployments
+
+Check the Status of Deployment
+
+$ kubectl rollout status deployment/Deployment
+
+Updating the deployment
+
+$ kubectl set image deployment/Deployment tomcat=tomcat:6.0
+
+Rolling Back the deployment
+
+$ kubectl rollout undo deployment/Deployment –to-revision=2
