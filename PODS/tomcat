@@ -14,3 +14,5 @@ containerPort: 7500
    OR
    
    $ kubectl run tomcat --image = tomcat:8.0
+   
+kubectl create –f tomcat.yml
