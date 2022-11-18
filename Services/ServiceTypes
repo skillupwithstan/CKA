@@ -1,0 +1,40 @@
+
+# Node Port
+spec:
+   type: NodePort
+   ports:
+   - port: 8080
+      nodePort: 31999
+      name: NodeportService
+
+
+
+# Node Port
+
+
+spec:
+   ports:
+   - port: 8080
+      nodePort: 31999
+      name: NodeportService
+      clusterIP: 10.20.30.40
+      
+      
+# Load Balancer
+      
+apiVersion: v1
+kind: Service
+metadata:
+   name: appname
+   labels:
+      k8s-app: appname
+spec:
+   type: NodePort
+   ports:
+   - port: 8080
+      nodePort: 31999
+      name: omninginx
+   selector:
+      k8s-app: appname
+      component: nginx
+      env: env_name
