@@ -1,0 +1,42 @@
+
+In the following example, 
+We have defined a simple service exposing port 80 in the service while targeting port 8080 in the Pods with the selector label “app=webserver-nginx”.
+##################################
+
+apiVersion: v1
+kind: Service
+metadata:
+name: nginx-service
+spec:
+selector:
+app: webserver-nginx
+ports:
+- protocol: TCP
+port: 80
+targetPort: 8080
+
+
+##################
+In this example
+We have exposed both ports 80 and 443 to target ports 8080 and 8090 to route HTTP and HTTPS traffic to underlying pods using the selector “app=webserver-nginx-multiport”
+#####################
+
+
+apiVersion: v1
+kind: Service
+metadata:
+name: nginx-service
+spec:
+selector:
+app: webserver-nginx-multiport
+ports:
+- name: http
+protocol: TCP
+port: 80
+targetPort: 8080
+- name: https
+protocol: TCP
+port: 443
+targetPort: 8090
+
+####################################
