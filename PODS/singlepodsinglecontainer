@@ -1,0 +1,16 @@
+To create single Pod
+
+###########################
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: stan-nginx-ctr1
+  labels:
+    name: stan-nginx-ctr1
+spec:
+  containers:
+      - name: stan-nginx-ctr1
+        image: nginx
+        ports:
+        - containerPort: 80
